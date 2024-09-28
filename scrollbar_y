@@ -1,0 +1,34 @@
+from tkinter import *
+
+root = Tk()
+root.geometry('500x500')
+root.title('horizonal scroll bar')
+
+w = Label(root, text = 'list', font = '25')
+
+
+
+w.pack()
+
+scroll_bar_y = Scrollbar(root, orient='vertical')
+
+
+#for adding vertical scroll bar
+scroll_bar_y.pack(side = RIGHT, fill = Y)
+mylist = Listbox(root, yscrollcommand = scroll_bar_y.set)
+
+scroll_x = Scrollbar(root, orient = 'horizontal')
+
+scroll_x.pack(side = BOTTOM, fill = X)
+
+number = 1
+for line in range(1,50):
+    mylist.insert(END,'Hi i am otis. I like coding things')
+
+
+mylist.pack(side = LEFT, fill = X)
+
+scroll_bar_y.config(command= mylist.yview)
+scroll_x.config(command= mylist.xview)
+
+root.mainloop()
