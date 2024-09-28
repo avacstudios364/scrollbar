@@ -1,0 +1,27 @@
+from tkinter import *
+
+root = Tk()
+root.geometry('500x500')
+root.title('scroll bar')
+
+w = Label(root, text = 'list', font = '25')
+
+
+
+w.pack()
+
+scroll_bar = Scrollbar(root)
+
+#for adding vertical scroll bar
+scroll_bar.pack(side = RIGHT, fill = Y)
+mylist = Listbox(root, yscrollcommand = scroll_bar.set)
+
+number = 1
+
+for i in range(50):
+    mylist.insert(number, number)
+    number = number + 1
+
+mylist.pack(side = LEFT, fill = BOTH)
+
+root.mainloop()
